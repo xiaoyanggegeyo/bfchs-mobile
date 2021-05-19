@@ -1,21 +1,23 @@
 <template>
   <div class="root">
-    <div class="item" v-for="(item,index) in newsList" :key="index"
+    <div class="item" v-for="(item,index) in newsList" :key="index" @click="getNewsDeatil(item)"
          :style="index == newsList.length - 1 ? '':'border-bottom:1px solid #ccc'">
-      <span>{{item.content}}</span>
-      <div class="time">{{dateFormat('YYYY/mm/dd',new Date())}}</div>
+      <span class="title">{{item.subtitle}}</span>
+      <div class="time">{{item.createtime}}</div>
     </div>
 
   </div>
 </template>
 
 <script>
+  import newsDeatil from '@/pages/common/news-detail.vue';
 
   export default {
     name: "news",
     data() {
       return {}
     },
+    components: {newsDeatil},
     props: {
       newsList: {
         type: Array,
@@ -45,6 +47,35 @@
         }
         ;
         return fmt;
+      },
+      getNewsDeatil(item) {
+        this.$axios.post('/commom/getInformationDetail?informationId=' + item.id).then(res => {
+          if (res.data.code == 200) {
+            this.$layer.iframe({
+              content: {
+                content: newsDeatil,
+                parent: this,
+                data: {
+                  detailsData: res.data.data
+                }
+              },
+              area: ['80%', '80%'],
+              title: res.data.data.title,
+              cancel: () => {
+
+              }
+            });
+
+
+          }
+        }).catch(err => {
+
+        })
+
+
+        // this.$axios.post('/commom/getInformationDetail?informationId=' + item.id).then(res => {
+        //   this.newsList = res.data.data.items;
+        // })
       }
     }
   }
@@ -54,6 +85,19 @@
   .root {
     width: 100%;
     padding: .8rem;
+
+    .title {
+      display: -webkit-box;
+      overflow: hidden;
+      white-space: normal !important;
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      color: #222222;
+      font-size: 16px;
+      font-family: 微软雅黑;
+    }
 
     .item {
       width: 100%;

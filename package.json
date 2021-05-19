@@ -24,6 +24,7 @@
     "nodemailer": "^6.4.10",
     "nuxt": "^2.0.0",
     "smoothscroll-polyfill": "^0.4.4",
+    "vue-layer": "^1.2.5",
     "wowjs": "^1.1.3"
   },
   "devDependencies": {

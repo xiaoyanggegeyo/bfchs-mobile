@@ -8,3 +8,8 @@ import vueSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 
 Vue.use(vueSwiper)
+
+
+import layer from 'vue-layer';
+import 'vue-layer/lib/vue-layer.css';
+Vue.prototype.$layer = layer(Vue);

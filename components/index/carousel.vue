@@ -1,8 +1,8 @@
 <template>
   <swiper :options="swiperOption">
-    <swiper-slide class="swiper-slide" v-for="(item,index) in carouselArr" :key="index"
+    <swiper-slide class="swiper-slide" v-for="(item,index) in bannerList" :key="index"
                   style="height: 200px;width: 200px">
-      <img :src="item" style="width: 100%;height: 100%;display: inline-block"/>
+      <img :src="item.bannerUrl" style="width: 100%;height: 100%;display: inline-block"/>
     </swiper-slide>
     <!-- 分页器 -->
     <div class="swiper-pagination" slot="pagination"></div>
@@ -37,32 +37,34 @@
           },
           //自动轮播
           autoplay: {
-            delay: 2000,
+            delay: 4000,
             //当用户滑动图片后继续自动轮播
             disableOnInteraction: false,
           },
           //开启循环模式
           loop: true
         },
-        carouselArr: [
-          'https://www.n127.com/file/upload/202007/10/1711318079229.jpg',
-          'https://www.n127.com/file/upload/202006/15/1507207979229.jpg',
-          'https://www.n127.com/file/upload/202006/15/1507145379229.jpg'
-        ]
+        bannerList: []
       }
     },
     mounted() {
       if (process.browser) {  // 在页面mounted生命周期里面 根据环境实例化WOW
         new WOW({}).init()
       }
+      ;
+      this.getActiveAd();
     },
     methods: {
-      onSlideStart(slide) {
-        this.sliding = true
-      },
-      onSlideEnd(slide) {
-        this.slide = slide
-        this.sliding = false
+      getActiveAd() {
+        this.$axios.post("/banner/getActiveAd", {type: '1'}).then(res => {
+          if (res.data.code == 200) {
+            this.bannerList = res.data.data;
+          }
+          // console.log(res);
+          // debugger;
+        }).catch(err => {
+
+        });
       }
     }
   }

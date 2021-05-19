@@ -1,18 +1,20 @@
 <template>
   <div class="root">
-    <div class="img-box" v-for="(item,index) in exampleList" :key="index">
-      <img :src="item.icon" alt="" class="img">
+    <div class="img-box" v-for="(item,index) in exampleList" :key="index" @click="getExampleDeatil(item)">
+      <img :src="item.picUrl" alt="" class="img">
       <a href="tel:15208592811" variant="success" class="button">立即联系</a>
     </div>
   </div>
 </template>
 
 <script>
+  import exampleDeatil from '@/pages/common/example-details.vue';
+
   export default {
     name: "example",
+    components:{exampleDeatil},
     data() {
-      return {
-      }
+      return {}
     },
     props: {
       exampleList: {
@@ -20,6 +22,32 @@
         default: function () {
           return [];
         }
+      }
+    },
+    methods: {
+      getExampleDeatil(item) {
+        this.$axios.post('/commom/getGoodsDetail?goodsId=' + item.id).then(res => {
+          if (res.data.code == 200) {
+            this.$layer.iframe({
+              content: {
+                content: exampleDeatil,
+                parent: this,
+                data: {
+                  detailsData: res.data.data
+                }
+              },
+              area: ['80%', '80%'],
+              title: res.data.data.subtitle,
+              cancel: () => {
+
+              }
+            });
+
+
+          }
+        }).catch(err => {
+
+        })
       }
     }
   }

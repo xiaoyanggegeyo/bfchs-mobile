@@ -68,11 +68,6 @@
       // Partner,
       // FooterNav
     },
-    mounted() {
-      if (process.browser) {  // 在页面mounted生命周期里面 根据环境实例化WOW
-        new WOW({}).init()
-      }
-    },
     data() {
       return {
         exampleList: [
@@ -91,7 +86,28 @@
           {content: '贵阳高速困境救援拖车价格'},
           {content: '贵阳上门收购报废车分析报废车标准'}]
       }
+    },
+    mounted() {
+      if (process.browser) {  // 在页面mounted生命周期里面 根据环境实例化WOW
+        new WOW({}).init()
+      }
+      ;
+      this.getExampleList();
+      this.getNewsList();
+    },
+    methods: {
+      getExampleList() {
+        this.$axios.post('/commom/getGoodsList?pageNo=1&pageSize=4  &classId=1').then(res => {
+          this.exampleList = res.data.data.items;
+        })
+      },
+      getNewsList() {
+        this.$axios.post('/commom/getInformationList?pageNo=1&pageSize=4').then(res => {
+          this.newsList = res.data.data.items;
+        })
+      }
     }
+
   }
 </script>
 

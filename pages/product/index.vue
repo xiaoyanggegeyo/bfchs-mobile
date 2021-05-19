@@ -9,13 +9,13 @@
 
 <script>
   import {mapState} from 'vuex'
+  import Title from '@/pages/common/title';
+  import Example from '@/pages/home/example';
 
   if (process.browser) { // 在这里根据环境引入wow.js
     var {WOW} = require('wowjs')
   }
 
-  import Title from '@/pages/common/title';
-  import Example from '@/pages/home/example';
 
   export default {
     components: {Title, Example},
@@ -24,30 +24,7 @@
         active: null,
         list: [],
         tabList: ['全部', '云计算', '大数据'],
-        exampleList: [
-          {
-            icon: require('~/static/img/example/1.jpg')
-          }, {
-            icon: require('~/static/img/example/2.jpg')
-          }, {
-            icon: require('~/static/img/example/3.jpg')
-          }, {
-            icon: require('~/static/img/example/4.jpg')
-          },
-          {
-            icon: require('~/static/img/example/5.jpg')
-          }, {
-            icon: require('~/static/img/example/6.jpg')
-          }, {
-            icon: require('~/static/img/example/7.jpg')
-          }, {
-            icon: require('~/static/img/example/8.jpg')
-          }, {
-            icon: require('~/static/img/example/9.jpg')
-          }, {
-            icon: require('~/static/img/example/10.jpg')
-          }
-        ]
+        exampleList: []
       }
     },
     watch: {
@@ -61,9 +38,18 @@
     },
     mounted() {
       this.active = this.subNavIndex
-      this.getList()
+      this.getList();
+      this.getExampleList();
     },
     methods: {
+      /**
+       * 获取案例数据列表
+       */
+      getExampleList() {
+        this.$axios.post('/commom/getGoodsList?pageNo=1&pageSize=100&classId=1').then(res => {
+          this.exampleList = res.data.data.items;
+        })
+      },
       // 筛选列表
       getList() {
         switch (Number(this.active)) {
