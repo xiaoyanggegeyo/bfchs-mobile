@@ -27,9 +27,10 @@
     <!--    <About/>-->
     <!--    <Partner/>-->
     <!--    <Client/>-->
+    <!--    版权组件-->
+    <Copyright style="margin-bottom: 4rem"/>
     <!--    底部导航栏-->
     <FooterNav/>
-
   </div>
 </template>
 
@@ -39,6 +40,7 @@
   import Title from '@/pages/common/title';
   import Example from '@/pages/home/example';
   import News from '@/pages/home/news';
+  import Copyright from '@/pages/common/copyright';
 
   // import Product from '@/components/index/product'
   // import Business from '@/components/index/business'
@@ -58,7 +60,8 @@
       AboutUs,
       Example,
       News,
-      FooterNav
+      FooterNav,
+      Copyright
 
 
       // Product,

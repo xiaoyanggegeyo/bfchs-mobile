@@ -2,40 +2,37 @@
   <div class="root">
     <Title title="新闻动态"/>
     <News :newsList="newsList"/>
+    <!--    版权组件-->
+    <Copyright/>
   </div>
 </template>
 
 <script>
   import Title from '@/pages/common/title';
   import News from '@/pages/home/news';
+  import Copyright from '@/pages/common/copyright';
 
   if (process.browser) { // 在这里根据环境引入wow.js
     var {WOW} = require('wowjs')
   }
   export default {
-    components: {Title, News},
+    components: {Title, News, Copyright},
     data() {
       return {
-        newsList: [
-          {content: '贵阳报废汽车联系电话分析汽车报废公司盈利点'},
-          {content: '贵阳高速困境救援拖车价格'},
-          {content: '贵阳上门收购报废车分析报废车标准'},
-          {content: '贵阳事故车回收厂家讲述自己洗车事项'},
-          {content: '贵阳报废车收购讲述家用轿车报废年限  '},
-          {content: '贵阳水淹车回收厂家讲述水淹车如何看  '},
-          {content: '贵阳报废车收购价格哪里好  '},
-          {content: '贵阳僵尸车回收 ​机动车报废程序  '},
-          {content: '贵阳汽车报废不办手续会不会影响新车登记  '},
-          {content: '贵阳上门收购报废车分析报废车不注销后果  '},
-          {content: '贵阳事故车回收厂家讲述有效排除事故车方法  '},
-          {content: '贵阳高价回收报废车热线  '},
-          {content: '贵阳黄标车由于单车排放高，应优先管控和淘汰  '},
-        ]
+        newsList: []
       }
     },
     mounted() {
       if (process.browser) {  // 在页面mounted生命周期里面 根据环境实例化WOW
         new WOW({}).init()
+      }
+      this.getNewsList();
+    },
+    methods: {
+      getNewsList() {
+        this.$axios.post('/commom/getInformationList?pageNo=1&pageSize=4').then(res => {
+          this.newsList = res.data.data.items;
+        })
       }
     }
   }

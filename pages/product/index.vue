@@ -4,6 +4,8 @@
     <div class="container">
       <Example :exampleList="exampleList"/>
     </div>
+    <!--    版权组件-->
+    <Copyright/>
   </section>
 </template>
 
@@ -11,6 +13,7 @@
   import {mapState} from 'vuex'
   import Title from '@/pages/common/title';
   import Example from '@/pages/home/example';
+  import Copyright from '@/pages/common/copyright';
 
   if (process.browser) { // 在这里根据环境引入wow.js
     var {WOW} = require('wowjs')
@@ -18,7 +21,7 @@
 
 
   export default {
-    components: {Title, Example},
+    components: {Title, Example, Copyright},
     data() {
       return {
         active: null,

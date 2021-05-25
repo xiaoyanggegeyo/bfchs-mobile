@@ -5,7 +5,7 @@
     <carousel class="d-block d-md-none d-lg-none d-xl-none" size="small" style="margin-top: 55px;"/>
     <nuxt/>
     <!--    版权组件-->
-    <Copyright/>
+<!--    <Copyright/>-->
 
     <!--    <concat />-->
     <!--    <my-footer />-->

@@ -6,6 +6,12 @@
     <div class="text">手机号码：152-0859-2811</div>
     <div class="text">联系邮箱：v185-7517-6400@15dwq.uu.me</div>
     <div class="text">地址: 贵州省贵阳市</div>
+    <Title title="扫一扫"/>
+    <div style="width: 100%;padding: 2rem">
+      <img :src="icon" alt="">
+    </div>
+    <!--    版权组件-->
+    <Copyright/>
   </div>
 
 </template>
@@ -13,6 +19,7 @@
 <script>
   import {mapState} from 'vuex';
   import Title from '@/pages/common/title';
+  import Copyright from '@/pages/common/copyright';
 
   if (process.browser) { // 在这里根据环境引入wow.js
     var {WOW} = require('wowjs')
@@ -22,11 +29,11 @@
     data() {
       return {
         active: 0,
-
+        icon: require('~/static/img/technology/wx.png'),
       }
     },
     components: {
-      Title
+      Title,Copyright
     },
     watch: {
       subNavIndex(newVal, oldVal) {

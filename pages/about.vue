@@ -2,6 +2,8 @@
   <div class="root">
     <Title title="关于我们"/>
     <AboutUs/>
+    <!--    版权组件-->
+    <Copyright/>
   </div>
 
 </template>
@@ -12,7 +14,7 @@
   import smoothscroll from 'smoothscroll-polyfill';
   import AboutUs from '@/pages/common/about-us';
   import Title from '@/pages/common/title';
-
+  import Copyright from '@/pages/common/copyright';
 
   if (process.browser) { // 在这里根据环境引入wow.js
     var {WOW} = require('wowjs')
@@ -21,7 +23,7 @@
 
 
   export default {
-    components: {Title, AboutUs},
+    components: {Title, AboutUs,Copyright},
     data() {
       return {
         topList: [],

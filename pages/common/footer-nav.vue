@@ -12,7 +12,7 @@
       <img class="img" :src="navList[2].icon" alt="">
       <div class="text">{{navList[2].text}}</div>
     </a>
-    <a class="box" href="mqqwpa://im/chat?chat_type=wpa&uin=1716656116&version=1&src_type=web&web_src=oicqzone.com">
+    <a class="box" href="javascript:void(0)" @click="$router.push({path:'/technology'})">
       <img class="img" :src="navList[3].icon" alt="">
       <div class="text">{{navList[3].text}}</div>
     </a>
@@ -30,7 +30,7 @@
           {icon: require('~/static/img/common/dianhua.png'), text: '电话咨询', path: ''},
           {icon: require('~/static/img/common/xinxi.png'), text: '信息咨询', path: ''},
           {icon: require('~/static/img/common/ditu.png'), text: '联系我们', path: ''},
-          {icon: require('~/static/img/common/qq.png'), text: 'QQ客服', path: ''}]
+          {icon: require('~/static/img/common/wx.png'), text: '微信客服', path: ''}]
 
       }
     },
