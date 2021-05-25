@@ -9,23 +9,30 @@ module.exports = {
     },
     title: '江苏贵阳专业收报废车中心数据技术有限公司',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
-      { hid: 'description', name: 'description', content: '立足政务互联网和工业信息化互联网两大领域；整合行业生态合作伙伴技术资源，打造具有贵阳专业收报废车中心特色的互联网+政务和互联网+工业信息化解决方案' },
-      { hid: 'keywords', name: 'keywords', content: '云计算、大数据、智慧城市、软件定制开发' }
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no'},
+      {
+        hid: 'description',
+        name: 'description',
+        content: '立足政务互联网和工业信息化互联网两大领域；整合行业生态合作伙伴技术资源，打造具有贵阳专业收报废车中心特色的互联网+政务和互联网+工业信息化解决方案'
+      },
+      {hid: 'keywords', name: 'keywords', content: '云计算、大数据、智慧城市、软件定制开发'}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
   },
-  // server: {
-  //   port: 3001,
-  //   host: '0.0.0.0'
-  // },
+  /**
+   *  TODO 配置前端服务运行的地址和端口  使用nginx请求转发到此地址 此端口即可
+   */
+  server: {
+    port: 3002,
+    host: '127.0.0.1'
+  },
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#FF0000' },
+  loading: {color: '#FF0000'},
   /*
   ** Global CSS
   */
@@ -48,8 +55,7 @@ module.exports = {
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: [
-  ],
+  buildModules: [],
   /*
   ** Nuxt.js modules
   */
@@ -62,17 +68,18 @@ module.exports = {
     '@nuxtjs/dotenv',
   ],
   /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
+ ** TODO 配置服务端 访问地址
+ **
+ */
   axios: {
+    browserBaseURL: 'http://clbf.mafengkj.ltd/api'
   },
   /*
   ** Build configuration
   */
- /**
-  * 取消预加载
-  */
+  /**
+   * 取消预加载
+   */
   render: {
     resourceHints: false
   },
@@ -80,7 +87,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     },
     // analyze: true,
     productionSourceMap: false,

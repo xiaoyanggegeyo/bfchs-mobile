@@ -2,7 +2,7 @@
   <div class="root">
     <div class="img-box" v-for="(item,index) in exampleList" :key="index" @click="getExampleDeatil(item)">
       <img :src="item.picUrl" alt="" class="img">
-      <a href="tel:15208592811" variant="success" class="button">立即联系</a>
+      <a href="tel:15628008678" variant="success" class="button">立即联系</a>
     </div>
   </div>
 </template>

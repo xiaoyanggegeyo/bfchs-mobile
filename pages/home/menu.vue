@@ -2,7 +2,7 @@
   <div class="box">
     <div class="out-box">
       <div class="left-box" @click="$router.push({path:'/'})">首页</div>
-      <div class="right-box" @click="$router.push({path:'/product'})">案例展示</div>
+      <div class="right-box" @click="$router.push({path:'/product'})">汽车交易</div>
     </div>
     <div class="out-box">
       <div class="left-box" @click="$router.push({path:'/about'})">关于我们</div>

@@ -1,10 +1,10 @@
 <template>
   <div class="root">
-    <a class="box" href="tel:15208592811">
+    <a class="box" href="tel:15628008678">
       <img class="img" :src="navList[0].icon" alt="">
       <div class="text">{{navList[0].text}}</div>
     </a>
-    <a class="box" href="sms:15208592811">
+    <a class="box" href="sms:15628008678">
       <img class="img" :src="navList[1].icon" alt="">
       <div class="text">{{navList[1].text}}</div>
     </a>

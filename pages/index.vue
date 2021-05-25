@@ -7,8 +7,8 @@
       <span slot="title-nav">  </span>
     </Title>
     <AboutUs style="margin-top: .8rem"/>
-    <!--    案例展示-->
-    <Title style="margin-top: .8rem" title="案例展示">
+    <!--    汽车交易-->
+    <Title style="margin-top: .8rem" title="汽车交易">
       <span slot="title-nav" @click="$router.push({path:'/product'})"> > </span>
     </Title>
     <Example :exampleList="exampleList"/>

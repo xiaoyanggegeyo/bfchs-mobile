@@ -4,7 +4,8 @@
       <div class="container">
         <!-- logo -->
         <b-navbar-brand to="/">
-          <img src="@/assets/img/logo.png" class="mr-2" alt="logo">贵阳专业收报废车中心
+<!--          <img src="@/assets/img/logo.png" class="mr-2" alt="logo">-->
+          贵阳专业收报废车中心
         </b-navbar-brand>
         <!-- 切换按钮 -->
         <b-navbar-toggle target="nav-collapse"
@@ -53,7 +54,7 @@
         navBarList: [
           {nav: '首页', link: '/', children: []},
           {
-            nav: '案例展示', link: '/product', children: []
+            nav: '汽车交易', link: '/product', children: []
           },
           {
             nav: '关于我们', link: '/about', children: []

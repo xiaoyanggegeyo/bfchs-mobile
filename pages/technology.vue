@@ -2,7 +2,7 @@
   <div class="root">
     <Title title="联系我们"/>
     <div class="text">联系人: 刘(先生)</div>
-    <div class="text">电话：15208592811</div>
+    <div class="text">电话：15628008678</div>
     <div class="text">手机号码：152-0859-2811</div>
     <div class="text">联系邮箱：v185-7517-6400@15dwq.uu.me</div>
     <div class="text">地址: 贵州省贵阳市</div>

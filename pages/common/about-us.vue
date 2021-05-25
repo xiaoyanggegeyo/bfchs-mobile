@@ -5,7 +5,7 @@
         <img class="img" :src=imgList[0].icon alt="">
       </div>
       <div class="right-box">
-        贵阳专业收报废车中心：收报废车电话：15208592811刘先生
+        贵阳专业收报废车中心：收报废车电话：15628008678刘先生
         是交管局指定的报废车专业解体厂！专业从事老旧机动车，事故车的报废解体业务。
       </div>
     </div>
@@ -21,7 +21,7 @@
     data() {
       return {
         imgList: [
-          {icon: require('~/static/img/about/one.jpg')}]
+          {icon: require('~/static/img/about/two.jpg')}]
       }
     },
   }

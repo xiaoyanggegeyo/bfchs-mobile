@@ -1,6 +1,6 @@
 <template>
   <section class="py-5 wrapper">
-    <Title title="案例展示"/>
+    <Title title="汽车交易"/>
     <div class="container">
       <Example :exampleList="exampleList"/>
     </div>
